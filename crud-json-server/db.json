@@ -1,0 +1,155 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "nome": "Lucas",
+      "descricao": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "endereco": 1,
+      "estado_id": 1
+    }
+  ],
+  "endereco": [
+    {
+      "id": 1,
+      "rua": "Rua irmã márcia",
+      "numero": "1069"
+    }
+  ],
+  "estados": [
+    {
+      "id": 1,
+      "estado": "Acre ",
+      "sigla": "AC"
+    },
+    {
+      "id": 2,
+      "estado": "Alagoas",
+      "sigla": "AL"
+    },
+    {
+      "id": 3,
+      "estado": "Amapá ",
+      "sigla": "AP"
+    },
+    {
+      "id": 4,
+      "estado": "Amazonas ",
+      "sigla": "AM"
+    },
+    {
+      "id": 5,
+      "estado": "Bahia ",
+      "sigla": "BA"
+    },
+    {
+      "id": 6,
+      "estado": "Ceará ",
+      "sigla": "CE"
+    },
+    {
+      "id": 7,
+      "estado": "Espírito Santo ",
+      "sigla": "ES"
+    },
+    {
+      "id": 8,
+      "estado": "Goiás ",
+      "sigla": "GO"
+    },
+    {
+      "id": 9,
+      "estado": "Maranhão ",
+      "sigla": "MA"
+    },
+    {
+      "id": 10,
+      "estado": "Mato Grosso ",
+      "sigla": "MT"
+    },
+    {
+      "id": 11,
+      "estado": "Mato Grosso do Sul ",
+      "sigla": "MS"
+    },
+    {
+      "id": 12,
+      "estado": "Minas Gerais ",
+      "sigla": "MG"
+    },
+    {
+      "id": 13,
+      "estado": "Pará ",
+      "sigla": "PA"
+    },
+    {
+      "id": 14,
+      "estado": "Paraíba ",
+      "sigla": "PB"
+    },
+    {
+      "id": 15,
+      "estado": "Paraná ",
+      "sigla": "PR"
+    },
+    {
+      "id": 16,
+      "estado": "Pernambuco ",
+      "sigla": "PE"
+    },
+    {
+      "id": 17,
+      "estado": "Piauí ",
+      "sigla": "PI"
+    },
+    {
+      "id": 18,
+      "estado": "Rio de Janeiro ",
+      "sigla": "RJ"
+    },
+    {
+      "id": 19,
+      "estado": "Rio Grande do Norte ",
+      "sigla": "RN"
+    },
+    {
+      "id": 20,
+      "estado": "Rio Grande do Sul ",
+      "sigla": "RS"
+    },
+    {
+      "id": 21,
+      "estado": "Rondônia ",
+      "sigla": "RO"
+    },
+    {
+      "id": 22,
+      "estado": "Roraima ",
+      "sigla": "RR"
+    },
+    {
+      "id": 23,
+      "estado": "Santa Catarina ",
+      "sigla": "SC"
+    },
+    {
+      "id": 24,
+      "estado": "São Paulo ",
+      "sigla": "SP"
+    },
+    {
+      "id": 25,
+      "estado": "Sergipe ",
+      "sigla": "SE"
+    },
+    {
+      "id": 26,
+      "estado": "Tocantins ",
+      "sigla": "TO"
+    },
+    {
+      "id": 27,
+      "estado": "Distrito Federal ",
+      "sigla": "DF"
+    }
+  ]
+}
