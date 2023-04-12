@@ -1,0 +1,16 @@
+<p>listagem works!</p>
+
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Profissão</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios">
+      <td>{{u.id}}</td>
+      <td>{{u.nome}}</td>
+      <td>{{u.profissao}}</td>
+    </tr>
+  </tbody>
+</table>
