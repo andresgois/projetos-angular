@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioServiceService } from './services/usuario-service.service';
+import { EnderecoServiceService } from './services/endereco-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,8 @@ import { UsuarioServiceService } from './services/usuario-service.service';
 export class AppComponent {
   title = 'crud-json-server';
 
-  constructor(private service: UsuarioServiceService){}
+  constructor(
+    private usuarioService: UsuarioServiceService,
+    private enderecoService: EnderecoServiceService
+    ){}
 }

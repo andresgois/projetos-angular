@@ -10,7 +10,6 @@ import { Usuario } from '../models/usuario.model';
 export class ListagemComponent implements OnInit {
 
   usuarios: Usuario[] = [];
-
   constructor(private service: UsuarioServiceService) { }
 
   ngOnInit(): void {
