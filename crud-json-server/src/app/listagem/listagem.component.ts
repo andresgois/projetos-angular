@@ -9,7 +9,8 @@ import { Usuario } from '../models/usuario.model';
 })
 export class ListagemComponent implements OnInit {
 
-  @Output() aoTransferir = new EventEmitter<any>();
+  @Output() aoClicar = new EventEmitter<any>();
+
   id: string = "";
   usuarios: Usuario[] = [];
   constructor(private service: UsuarioServiceService) { }
@@ -24,8 +25,9 @@ export class ListagemComponent implements OnInit {
     )
   }
 
-  capturaId(id: string){
-    console.log(id);
+  capturaId(){
+    console.log("Captura");
+    console.log(this.aoClicar);
   }
 
 }
