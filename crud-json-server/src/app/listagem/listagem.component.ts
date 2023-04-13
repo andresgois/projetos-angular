@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UsuarioServiceService } from '../services/usuario-service.service';
 import { Usuario } from '../models/usuario.model';
+import { EnderecoServiceService } from '../services/endereco-service.service';
 
 @Component({
   selector: 'app-listagem',
@@ -11,9 +12,9 @@ export class ListagemComponent implements OnInit {
 
   @Output() aoClicar = new EventEmitter<any>();
 
-  id: string = "";
+  //id: string = "";
   usuarios: Usuario[] = [];
-  constructor(private service: UsuarioServiceService) { }
+  constructor(private service: UsuarioServiceService, private serviceEndereco: EnderecoServiceService) { }
 
   ngOnInit(): void {
     this.service.listaTodosUsuarios().subscribe(
@@ -25,9 +26,20 @@ export class ListagemComponent implements OnInit {
     )
   }
 
-  capturaId(){
-    console.log("Captura");
-    console.log(this.aoClicar);
+  /*capturaId(){
+    this.aoClicar.emit({id: this.id});
+    console.log("aqui")
+  }*/
+
+  editar(u: Usuario){
+    console.log(u);
+    console.log(u.endereco_id);
+    let id: String = u.endereco_id.toString();
+    this.serviceEndereco.buscaEnderecosPorId(id).subscribe(
+      x => {
+        console.log(x);
+      }
+    )
   }
 
 }

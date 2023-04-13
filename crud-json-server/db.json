@@ -4,14 +4,14 @@
       "id": 1,
       "nome": "Lucas",
       "profissao": "Assitente de T.I",
-      "endereco": 1,
+      "endereco_id": 1,
       "estado_id": 1
     },
     {
       "id": 2,
       "nome": "André",
       "profissao": "Analista de Sistemas",
-      "endereco": 1,
+      "endereco_id": 1,
       "estado_id": 1
     }
   ],
