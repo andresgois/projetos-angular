@@ -1,16 +1,22 @@
-<p>listagem works!</p>
+<h3>Lista de usuários</h3>
 
 <table>
   <thead>
     <th>Id</th>
     <th>Nome</th>
     <th>Profissão</th>
+    <th>Ações</th>
   </thead>
   <tbody>
     <tr *ngFor="let u of usuarios">
-      <td>{{u.id}}</td>
+      <td name="id">{{u.id}}</td>
       <td>{{u.nome}}</td>
       <td>{{u.profissao}}</td>
+      <td>
+        <a  (click)="capturaId({{u}})">Detalhes</a>
+        <a >Editar</a>
+        <a >Excluir</a>
+      </td>
     </tr>
   </tbody>
 </table>

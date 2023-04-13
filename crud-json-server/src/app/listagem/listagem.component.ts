@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UsuarioServiceService } from '../services/usuario-service.service';
 import { Usuario } from '../models/usuario.model';
 
@@ -9,6 +9,8 @@ import { Usuario } from '../models/usuario.model';
 })
 export class ListagemComponent implements OnInit {
 
+  @Output() aoTransferir = new EventEmitter<any>();
+  id: string = "";
   usuarios: Usuario[] = [];
   constructor(private service: UsuarioServiceService) { }
 
@@ -16,9 +18,14 @@ export class ListagemComponent implements OnInit {
     this.service.listaTodosUsuarios().subscribe(
       (usuario: Usuario[]) => {
         console.table(usuario);
+        console.log(usuario[0].estado_id);
         this.usuarios = usuario;
       }
     )
+  }
+
+  capturaId(id: string){
+    console.log(id);
   }
 
 }
