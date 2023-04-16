@@ -11,10 +11,11 @@ import { EnderecoServiceService } from '../services/endereco-service.service';
 export class ListagemComponent implements OnInit {
 
   @Output() aoClicar = new EventEmitter<any>();
-
-  //id: string = "";
+  mostrar: Boolean = false;
   usuarios: Usuario[] = [];
-  constructor(private service: UsuarioServiceService, private serviceEndereco: EnderecoServiceService) { }
+  usuario?: Usuario;
+
+  constructor(private service: UsuarioServiceService) { }
 
   ngOnInit(): void {
     this.service.listaTodosUsuarios().subscribe(
@@ -26,20 +27,17 @@ export class ListagemComponent implements OnInit {
     )
   }
 
-  /*capturaId(){
-    this.aoClicar.emit({id: this.id});
-    console.log("aqui")
-  }*/
+  public alerta(e:Boolean) {
+    this.toggle()
+  }
+
+  toggle(){
+    this.mostrar = !this.mostrar;
+  }
 
   editar(u: Usuario){
-    console.log(u);
-    console.log(u.endereco_id);
-    let id: String = u.endereco_id.toString();
-    this.serviceEndereco.buscaEnderecosPorId(id).subscribe(
-      x => {
-        console.log(x);
-      }
-    )
+    this.usuario = u;
+    this.toggle();
   }
 
 }

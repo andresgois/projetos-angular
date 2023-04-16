@@ -20,3 +20,4 @@
     </tr>
   </tbody>
 </table>
+<app-modal *ngIf="mostrar" [usuarioInput]="usuario" [mostrarInput]="mostrar" (onAlert)="alerta($event)"></app-modal>

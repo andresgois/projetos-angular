@@ -1,1 +1,8 @@
-<p>modal works!</p>
+<main>
+  <p>
+    Usuário:
+    <span>{{ usuarioInput?.nome }}</span>
+  </p>
+  <button (click)="alertEvent($event)">Fechar</button>
+</main>
+<div class="overlay"></div>
