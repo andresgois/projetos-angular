@@ -20,8 +20,8 @@ export class ListagemComponent implements OnInit {
   ngOnInit(): void {
     this.service.listaTodosUsuarios().subscribe(
       (usuario: Usuario[]) => {
-        console.table(usuario);
-        console.log(usuario[0].estado_id);
+        //console.table(usuario);
+        //console.log(usuario[0].estado_id);
         this.usuarios = usuario;
       }
     )

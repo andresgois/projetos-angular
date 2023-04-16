@@ -1,8 +1,22 @@
 <main>
-  <p>
-    Usuário:
-    <span>{{ usuarioInput?.nome }}</span>
-  </p>
+  <div class="group">
+    <label>Usuário: </label>
+    <input
+      type="text"
+      name="usuario"
+      id="usuario"
+      value="{{ (usuarioFull?.usuario)!.nome }}"
+    />
+  </div>
+  <div class="group">
+    <label>Rua: </label>
+    <input
+      type="text"
+      name="rua"
+      id="rua"
+      value="{{ usuarioFull?.endereco?.rua }}"
+    />
+  </div>
   <button (click)="alertEvent($event)">Fechar</button>
 </main>
 <div class="overlay"></div>
