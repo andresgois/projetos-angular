@@ -1,7 +1,9 @@
+import { Estado } from './../models/estado.model';
 import { Endereco } from './../models/endereco.model';
 import { EnderecoServiceService } from '../services/endereco-service.service';
 import { UsuarioFull } from './../models/usuario-full';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { EstadoService } from '../services/estado/estado.service';
 
 @Component({
   selector: 'app-modal',
@@ -16,7 +18,10 @@ export class ModalComponent implements OnInit {
   @Input() mostrarInput!: Boolean
   usuarioFull?: UsuarioFull = {} as UsuarioFull;
 
-  constructor(private serviceEndereco: EnderecoServiceService) {
+  constructor(
+    private serviceEndereco: EnderecoServiceService,
+    private serviceEstado: EstadoService
+    ) {
     /*let user = {"id":1,"nome":"Lucas","profissao":"Assitente de T.I","endereco_id":1,"estado_id":1};
     let endereco = {'id':1, 'numero':'1059', 'rua':'rua irma maria'};
     let estado = {"id":1,"estado":"Acre ","sigla":"AC"};
@@ -38,6 +43,13 @@ export class ModalComponent implements OnInit {
         console.log(x);
         this.usuarioFull!.endereco = x;
         console.log("usuarioFull: "+this.usuarioFull)
+      }
+    )
+    let estado_id = this.usuarioInput.estado_id.toString();
+    this.serviceEstado.buscaEstadoPorID(estado_id).subscribe(
+      (estado: Estado) => {
+        console.log(estado)
+        this.usuarioFull!.estados = estado
       }
     )
   }
