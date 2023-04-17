@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import { Estado } from 'src/app/models/estado.model';
+import { EstadoService } from 'src/app/services/estado/estado.service';
 
 @Component({
   selector: 'app-modalgeral',
@@ -9,14 +11,19 @@ export class ModalgeralComponent implements OnInit {
 
   @Output() public aoClicarModal = new EventEmitter();
   @Input() openModalInput!: Boolean;
+  estados?: Estado[] = [];
 
-  constructor() { }
+  constructor(private serviceEstado: EstadoService) { }
 
   ngOnInit(): void {
+    this.serviceEstado.todosEstados().subscribe(
+      (est: Estado[]) => {
+        this.estados = est;
+      }
+    )
   }
 
   public modalStatus(e: object) {
-    //console.log(this.openModalInput)
     this.aoClicarModal.emit(this.openModalInput);
   }
 }

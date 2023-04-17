@@ -17,4 +17,9 @@ export class EstadoService {
     return this.httpClient.get<Estado>(rota);
   }
 
+  todosEstados(): Observable<Estado[]>{
+    let rota = `${this.url}`;
+    return this.httpClient.get<Estado[]>(rota);
+  }
+
 }
