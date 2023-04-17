@@ -1,6 +1,7 @@
-<h3>Lista de usuários</h3>
-<button (click)="novo(null)">Novo</button>
-<app-modalgeral *ngIf="openModal" [openModalInput]="openModal" (aoClicarModal)="showModal($event)"></app-modalgeral>
+<div class="header">
+  <h3>Lista de usuários</h3>
+  <button (click)="novo(null)">Novo</button>
+</div>
 
 <table>
   <thead>
@@ -22,4 +23,7 @@
     </tr>
   </tbody>
 </table>
+
+<app-modalgeral *ngIf="openModal" [openModalInput]="openModal" (aoClicarModal)="showModal($event)"></app-modalgeral>
+
 <app-modal *ngIf="mostrar" [usuarioInput]="usuario" [mostrarInput]="mostrar" (onAlert)="alerta($event)"></app-modal>

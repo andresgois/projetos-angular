@@ -28,3 +28,19 @@ table {
     }
   }
 }
+
+.header {
+  display: flex;
+
+  button {
+    background-color: #642bde;
+    color: #fff;
+    border-radius: 15px;
+    border: 0;
+    width: 7rem;
+    height: 2.5rem;
+    margin: 10px auto;
+    align-self: center;
+    justify-content: center;
+  }
+}
