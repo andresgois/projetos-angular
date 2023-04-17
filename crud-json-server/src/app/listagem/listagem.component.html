@@ -1,4 +1,6 @@
 <h3>Lista de usuários</h3>
+<button (click)="novo(null)">Novo</button>
+<app-modalgeral *ngIf="openModal" [openModalInput]="openModal" (aoClicarModal)="showModal($event)"></app-modalgeral>
 
 <table>
   <thead>

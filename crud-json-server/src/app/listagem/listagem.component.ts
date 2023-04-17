@@ -1,7 +1,6 @@
+import { Usuario } from './../models/usuario.model';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UsuarioServiceService } from '../services/usuario-service.service';
-import { Usuario } from '../models/usuario.model';
-import { EnderecoServiceService } from '../services/endereco-service.service';
 
 @Component({
   selector: 'app-listagem',
@@ -12,6 +11,7 @@ export class ListagemComponent implements OnInit {
 
   @Output() aoClicar = new EventEmitter<any>();
   mostrar: Boolean = false;
+  openModal: Boolean = false;
   usuarios: Usuario[] = [];
   usuario?: Usuario;
 
@@ -30,14 +30,25 @@ export class ListagemComponent implements OnInit {
   public alerta(e:Boolean) {
     this.toggle()
   }
+  public showModal(e:Boolean) {
+    this.toggleModal()
+  }
 
   toggle(){
     this.mostrar = !this.mostrar;
   }
 
+  toggleModal(){
+    this.openModal = !this.openModal;
+  }
+
   editar(u: Usuario){
     this.usuario = u;
     this.toggle();
+  }
+
+  novo(user: Usuario | null ){
+    this.toggleModal();
   }
 
 }
