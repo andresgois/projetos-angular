@@ -9,14 +9,18 @@ import { Observable } from 'rxjs';
 export class EnderecoServiceService {
 
   private url = "http://localhost:3000/endereco";
-  private endereco: Endereco[];
 
   constructor(private httpClient: HttpClient) {
-    this.endereco = [];
   }
 
   buscaEnderecosPorId(id: String): Observable<Endereco>{
     let rota = `${this.url}/${id}`;
     return this.httpClient.get<Endereco>(rota);
+  }
+
+  criarEndereco(ender: Endereco): Observable<Endereco>{
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(ender);
+    return this.httpClient.post<Endereco>(this.url, body, {'headers':headers});
   }
 }

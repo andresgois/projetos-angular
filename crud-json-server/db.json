@@ -13,6 +13,34 @@
       "profissao": "Analista de Sistemas",
       "endereco_id": 1,
       "estado_id": 1
+    },
+    {
+      "id": 3,
+      "nome": "lima",
+      "profissao": "ti",
+      "endereco_id": 2,
+      "estado_id": 15
+    },
+    {
+      "id": 4,
+      "nome": "priscila",
+      "profissao": "Promotora de eventos",
+      "endereco_id": 2,
+      "estado_id": 6
+    },
+    {
+      "id": 5,
+      "nome": "maria",
+      "profissao": "costureira",
+      "endereco_id": 2,
+      "estado_id": 18
+    },
+    {
+      "id": 6,
+      "nome": "Andreia",
+      "profissao": "estudante",
+      "endereco_id": 2,
+      "estado_id": 14
     }
   ],
   "endereco": [
@@ -20,6 +48,11 @@
       "id": 1,
       "rua": "Rua irmã márcia",
       "numero": "1069"
+    },
+    {
+      "id": 3,
+      "rua": "rua irmã cristina",
+      "numero": "1059"
     }
   ],
   "estados": [
