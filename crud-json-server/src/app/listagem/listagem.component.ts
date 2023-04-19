@@ -18,6 +18,14 @@ export class ListagemComponent implements OnInit {
   constructor(private service: UsuarioServiceService) { }
 
   ngOnInit(): void {
+    this.listaTodosUsuarios();
+  }
+
+  onSumit(){
+    console.log("On Submit");
+  }
+
+  listaTodosUsuarios(){
     this.service.listaTodosUsuarios().subscribe(
       (usuario: Usuario[]) => {
         this.usuarios = usuario;
@@ -38,6 +46,7 @@ export class ListagemComponent implements OnInit {
 
   toggleModal(){
     this.openModal = !this.openModal;
+    this.listaTodosUsuarios();
   }
 
   editar(u: Usuario){

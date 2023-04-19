@@ -1,48 +1,48 @@
 <main>
   <h5 class="center">Criar usuário</h5>
 
-  <div class="bloco-dados">
-    <h5>Dados Pessoais</h5>
-    <div class="group">
-      <label>ID </label>
-      <input type="text" name="usuario" id="usuario" value="" />
-    </div>
-    <div class="group">
-      <label>Usuário: </label>
-      <input type="text" name="usuario" id="usuario" value="" />
-    </div>
-    <div class="group">
-      <label>Profissão: </label>
-      <input type="text" name="usuario" id="usuario" value="" />
-    </div>
-  </div>
+  <form (ngSubmit)="onSubmit()" #formUser="ngForm">
 
-  <div class="bloco-dados">
-    <h5>Dados de Endereço</h5>
+    <div class="bloco-dados">
+      <h5>Dados Pessoais</h5>
 
-    <div class="group">
-      <label>Rua: </label>
-      <input type="text" name="rua" id="rua" value="" />
+      <div class="group">
+        <label>Usuário: </label>
+        <input type="text" name="nome" id="nome" [(ngModel)]="user.nome" />
+      </div>
+      <div class="group">
+        <label>Profissão: </label>
+        <input type="text" name="profisao" id="profisao" [(ngModel)]="user.profissao" />
+      </div>
     </div>
-    <div class="group">
-      <label>Número: </label>
-      <input type="text" name="numero" id="numero" value="" />
-    </div>
-    <div class="group">
-      <label>Sigla: </label>
-      <select name="plataforma">
-        <option value="" selected>Selecione o estado</option>
-        <option *ngFor="let estado of estados"
-          [value]="estado.id">
-            {{estado.estado}}
-      </option>
-    </select>
-    </div>
-  </div>
 
-  <div class="footer-card">
-    <button>Cadastrar</button>
-    <button (click)="modalStatus($event)">Fechar</button>
-  </div>
+    <div class="bloco-dados">
+      <h5>Dados de Endereço</h5>
+
+      <div class="group">
+        <label>Rua: </label>
+        <input type="text" name="rua" id="rua" [(ngModel)]="user.rua" />
+      </div>
+      <div class="group">
+        <label>Número: </label>
+        <input type="text" name="numero" id="numero" [(ngModel)]="user.numero" />
+      </div>
+      <div class="group">
+        <label>Sigla: </label>
+        <select name="plataforma" [(ngModel)]="user.estado">
+          <option value="" selected>Selecione o estado</option>
+          <option *ngFor="let estado of estados"
+            [value]="estado.id">
+              {{estado.estado}}
+        </option>
+      </select>
+      </div>
+    </div>
+
+    <div class="footer-card">
+      <button>Cadastrar</button>
+      <button (click)="modalStatus($event)">Fechar</button>
+    </div>
+  </form>
 </main>
 <div class="overlay"></div>
