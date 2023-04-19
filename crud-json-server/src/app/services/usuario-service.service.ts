@@ -9,14 +9,18 @@ import { Observable } from 'rxjs';
 export class UsuarioServiceService {
 
   private url = "http://localhost:3000/usuario";
-  private listaUsuario: Usuario[];
 
-  constructor(private httpClient: HttpClient) {
-    this.listaUsuario = [];
-  }
+  constructor(private httpClient: HttpClient) {  }
 
   listaTodosUsuarios(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>(this.url);
+  }
+
+  criarUsuario(user: Usuario): Observable<any> {
+    console.log('user create: ',user)
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(user);
+    return this.httpClient.post<Usuario>(this.url, body, {'headers':headers});
   }
 
 }
