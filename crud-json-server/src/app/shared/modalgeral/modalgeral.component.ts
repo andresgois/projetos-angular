@@ -48,11 +48,7 @@ export class ModalgeralComponent implements OnInit {
         console.log(data)
       }
     );
-    this.serviceUser.criarUsuario(user1).subscribe(
-      (data) => {
-        console.log(data)
-      }
-    );
+    this.serviceUser.criarUsuario(user1)
     this.aoClicarModal.emit(this.openModalInput);
   }
 }
