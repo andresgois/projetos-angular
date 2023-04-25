@@ -16,30 +16,11 @@ export class UsuarioServiceService {
     return this.httpClient.get<Usuario[]>(this.url);
   }
 
-  criarUsuario1(user: Usuario): Observable<any> {
-    this.listaTodosUsuarios().subscribe(
-      x => {
-        user.id = x[x.length-1].id + 1
-        console.log('IuserItem = ',x[x.length-1].id + 1)
-      }
-    )
-    console.log('user create: ',user)
+  usuarioPost(u: Usuario): Observable<Usuario> {
+    console.log("post u")
     const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(user);
-    return this.httpClient.post<Usuario>(this.url, body, {'headers':headers});
-  }
-
-  async criarUsuario(user: Usuario): Promise<any>{
-    console.log('1');
-    let x = await this.listaTodosUsuarios().toPromise()
-
-    console.log(x[x.length-1].id + 1);
-    console.log('3');
-    console.log('user create: ',user)
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(user);
-    console.log('4');
-    return this.httpClient.post<Usuario>(this.url, body, {'headers':headers});
+    const body=JSON.stringify(u);
+    return this.httpClient.post<Usuario>(this.url, body, {'headers': headers});
   }
 
 }

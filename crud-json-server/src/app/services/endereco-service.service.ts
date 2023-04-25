@@ -22,16 +22,10 @@ export class EnderecoServiceService {
     return this.httpClient.get<Endereco>(rota);
   }
 
-  criarEndereco(ender: Endereco): Observable<Endereco>{
-    this.buscarTodosEnderecos().subscribe(
-      x => {
-        ender.id = x[x.length-1].id + 1;
-        console.log('Item = ',x[x.length-1].id + 1)
-      }
-    )
-    console.log('ender: ', ender)
+  enderecoPost(e: Endereco): Observable<Endereco>{
+    console.log("post e")
     const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(ender);
-    return this.httpClient.post<Endereco>(this.url, body, {'headers':headers});
+    const body=JSON.stringify(e);
+    return this.httpClient.post<Endereco>(this.url, body, {'headers': headers})
   }
 }

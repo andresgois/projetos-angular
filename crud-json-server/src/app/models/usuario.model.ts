@@ -1,7 +1,7 @@
 export interface Usuario {
-  id: number;
+  id?: number;
   nome: string;
   profissao: string;
-  endereco_id: number;
+  endereco_id?: number;
   estado_id: number;
 }

@@ -39,16 +39,21 @@ export class ModalgeralComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('aqui')
-    console.log('user: ', this.user)
-    const ender: Endereco = { id: 3, rua: this.user.rua, numero: this.user.numero};
-    const user1: Usuario = { id: 6, nome: this.user.nome, profissao: this.user.profissao, endereco_id: 2, estado_id: parseInt(this.user.estado)};
-    this.serviceEnder.criarEndereco(ender).subscribe(
-      (data) => {
-        console.log(data)
+    const endereco = { rua: this.user.rua, numero: this.user.numero};
+
+
+    this.serviceEnder.enderecoPost(endereco).subscribe(
+      e => {
+        console.log("Endereco criado com sucesso: ", e)
+
+        const usuario = { nome: this.user.nome, profissao: this.user.profissao, endereco_id: e.id, estado_id: parseInt(this.user.estado)};
+        this.serviceUser.usuarioPost(usuario).subscribe(
+          u => console.log("Usuario criado com sucesso: ", u)
+        )
       }
     );
-    this.serviceUser.criarUsuario(user1)
+
+
     this.aoClicarModal.emit(this.openModalInput);
   }
 }
