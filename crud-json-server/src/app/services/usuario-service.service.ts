@@ -17,10 +17,14 @@ export class UsuarioServiceService {
   }
 
   usuarioPost(u: Usuario): Observable<Usuario> {
-    console.log("post u")
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(u);
     return this.httpClient.post<Usuario>(this.url, body, {'headers': headers});
+  }
+
+  deletar(id: number | undefined) {
+    const headers = { 'content-type': 'application/json'}
+    return this.httpClient.delete(`${this.url}/${id}`, {'headers': headers});
   }
 
 }
