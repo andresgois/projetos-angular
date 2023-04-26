@@ -1,13 +1,10 @@
-import { Endereco } from './../../models/endereco.model';
-import { UsuarioFull } from './../../models/usuario-full';
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import { User } from 'src/app/class/usuario-full';
 import { Estado } from 'src/app/models/estado.model';
-import { Usuario } from 'src/app/models/usuario.model';
 import { EnderecoServiceService } from 'src/app/services/endereco-service.service';
 import { EstadoService } from 'src/app/services/estado/estado.service';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
-
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-modalgeral',
   templateUrl: './modalgeral.component.html',
@@ -19,6 +16,7 @@ export class ModalgeralComponent implements OnInit {
   @Input() openModalInput!: Boolean;
   estados?: Estado[] = [];
   user = new User();
+  private listReady = new Subject();
 
   constructor(
     private serviceUser: UsuarioServiceService,
@@ -35,12 +33,12 @@ export class ModalgeralComponent implements OnInit {
   }
 
   public modalStatus(e: object) {
+    console.log("modalStatus")
     this.aoClicarModal.emit(this.openModalInput);
   }
 
   onSubmit(){
     const endereco = { rua: this.user.rua, numero: this.user.numero};
-
 
     this.serviceEnder.enderecoPost(endereco).subscribe(
       e => {
@@ -48,12 +46,13 @@ export class ModalgeralComponent implements OnInit {
 
         const usuario = { nome: this.user.nome, profissao: this.user.profissao, endereco_id: e.id, estado_id: parseInt(this.user.estado)};
         this.serviceUser.usuarioPost(usuario).subscribe(
-          u => console.log("Usuario criado com sucesso: ", u)
+          u => {
+            console.log("Usuario criado com sucesso: ", u)
+            this.aoClicarModal.emit(this.openModalInput);
+            this.listReady.next('ready');
+          }
         )
       }
-    );
-
-
-    this.aoClicarModal.emit(this.openModalInput);
+      );
   }
 }

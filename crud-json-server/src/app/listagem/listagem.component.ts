@@ -1,6 +1,8 @@
 import { Usuario } from './../models/usuario.model';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UsuarioServiceService } from '../services/usuario-service.service';
+import { EnderecoServiceService } from '../services/endereco-service.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-listagem',
@@ -14,8 +16,10 @@ export class ListagemComponent implements OnInit {
   openModal: Boolean = false;
   usuarios: Usuario[] = [];
   usuario?: Usuario;
+  private listReady = new Subject();
 
-  constructor(private service: UsuarioServiceService) { }
+  constructor(private service: UsuarioServiceService,
+    private serviceEnde: EnderecoServiceService) { }
 
   ngOnInit(): void {
     this.listaTodosUsuarios();
@@ -37,6 +41,8 @@ export class ListagemComponent implements OnInit {
     this.toggle()
   }
   public showModal(e:Boolean) {
+    //console.log("showModal")
+    this.listaTodosUsuarios();
     this.toggleModal()
   }
 
@@ -46,12 +52,24 @@ export class ListagemComponent implements OnInit {
 
   toggleModal(){
     this.openModal = !this.openModal;
-    this.listaTodosUsuarios();
   }
 
-  editar(u: Usuario){
+  detalhes(u: Usuario){
     this.usuario = u;
     this.toggle();
+  }
+
+  delete(u: Usuario){
+    console.log(u.id);
+    this.serviceEnde.deletar(u.endereco_id).subscribe(
+      x => {
+        this.service.deletar(u.id).subscribe(
+          x => {
+            this.listaTodosUsuarios();
+          }
+        );
+      }
+    );
   }
 
   novo(user: Usuario | null ){
