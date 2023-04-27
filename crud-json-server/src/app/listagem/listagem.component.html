@@ -17,13 +17,13 @@
       <td>{{u.profissao}}</td>
       <td>
         <a (click)="detalhes(u)">Detalhes</a>
-        <a >Editar</a>
+        <a (click)="editar(u)">Editar</a>
         <a (click)="delete(u)">Excluir</a>
       </td>
     </tr>
   </tbody>
 </table>
 
-<app-modalgeral *ngIf="openModal" [openModalInput]="openModal" (aoClicarModal)="showModal($event)"></app-modalgeral>
+<app-modalgeral *ngIf="openModal" [openModalInput]="openModal" (aoClicarModal)="showModal($event)" [edit]="usuario"></app-modalgeral>
 
 <app-modal *ngIf="mostrar" [usuarioInput]="usuario" [mostrarInput]="mostrar" (onAlert)="alerta($event)"></app-modal>

@@ -1,5 +1,5 @@
 <main>
-  <h5 class="center">Criar usuário</h5>
+  <h5 class="center">{{edit ? 'Editar usuário' : 'Criar usuário'}}</h5>
 
   <form (ngSubmit)="onSubmit()" #formUser="ngForm">
 

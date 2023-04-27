@@ -29,18 +29,25 @@
       "id": 12
     },
     {
-      "nome": "sem console",
-      "profissao": "aqui",
-      "endereco_id": 13,
-      "estado_id": 11,
-      "id": 13
+      "nome": "Teste6",
+      "profissao": "TI",
+      "endereco_id": 15,
+      "estado_id": 15,
+      "id": 15
     },
     {
-      "nome": "teste5",
-      "profissao": "sem console",
-      "endereco_id": 14,
-      "estado_id": 12,
-      "id": 14
+      "nome": "teste7",
+      "profissao": "TI",
+      "endereco_id": 16,
+      "estado_id": 16,
+      "id": 16
+    },
+    {
+      "nome": "teste5 novo",
+      "profissao": "mesmo",
+      "endereco_id": 17,
+      "estado_id": 9,
+      "id": 17
     }
   ],
   "endereco": [
@@ -65,14 +72,19 @@
       "id": 12
     },
     {
-      "rua": "teste",
-      "numero": "1",
-      "id": 13
+      "rua": "avenida",
+      "numero": "569",
+      "id": 15
     },
     {
-      "rua": "aqui",
-      "numero": "56",
-      "id": 14
+      "rua": "rua lima",
+      "numero": "896",
+      "id": 16
+    },
+    {
+      "rua": "ola",
+      "numero": "555",
+      "id": 17
     }
   ],
   "estados": [

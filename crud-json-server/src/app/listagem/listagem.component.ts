@@ -15,8 +15,7 @@ export class ListagemComponent implements OnInit {
   mostrar: Boolean = false;
   openModal: Boolean = false;
   usuarios: Usuario[] = [];
-  usuario?: Usuario;
-  private listReady = new Subject();
+  usuario?: Usuario = undefined;
 
   constructor(private service: UsuarioServiceService,
     private serviceEnde: EnderecoServiceService) { }
@@ -59,6 +58,13 @@ export class ListagemComponent implements OnInit {
     this.toggle();
   }
 
+  editar(u: Usuario){
+    console.log("Editar")
+    console.log("Editar: ", u)
+    this.usuario = u;
+    this.toggleModal();
+  }
+
   delete(u: Usuario){
     console.log(u.id);
     this.serviceEnde.deletar(u.endereco_id).subscribe(
@@ -73,6 +79,8 @@ export class ListagemComponent implements OnInit {
   }
 
   novo(user: Usuario | null ){
+    console.log("novo")
+    this.usuario = undefined
     this.toggleModal();
   }
 
