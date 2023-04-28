@@ -24,10 +24,6 @@ export class ListagemComponent implements OnInit {
     this.listaTodosUsuarios();
   }
 
-  onSumit(){
-    console.log("On Submit");
-  }
-
   listaTodosUsuarios(){
     this.service.listaTodosUsuarios().subscribe(
       (usuario: Usuario[]) => {
@@ -40,7 +36,6 @@ export class ListagemComponent implements OnInit {
     this.toggle()
   }
   public showModal(e:Boolean) {
-    //console.log("showModal")
     this.listaTodosUsuarios();
     this.toggleModal()
   }
@@ -59,14 +54,12 @@ export class ListagemComponent implements OnInit {
   }
 
   editar(u: Usuario){
-    console.log("Editar")
-    console.log("Editar: ", u)
+
     this.usuario = u;
     this.toggleModal();
   }
 
   delete(u: Usuario){
-    console.log(u.id);
     this.serviceEnde.deletar(u.endereco_id).subscribe(
       x => {
         this.service.deletar(u.id).subscribe(
@@ -79,7 +72,6 @@ export class ListagemComponent implements OnInit {
   }
 
   novo(user: Usuario | null ){
-    console.log("novo")
     this.usuario = undefined
     this.toggleModal();
   }

@@ -1,18 +1,18 @@
 {
   "usuario": [
     {
-      "nome": "ANdre",
+      "id": 9,
+      "nome": "ANdre update",
       "profissao": "Analista",
       "endereco_id": 9,
-      "estado_id": 17,
-      "id": 9
+      "estado_id": 13
     },
     {
-      "nome": "Priscila",
+      "id": 10,
+      "nome": "Priscila Erica",
       "profissao": "Eventos",
       "endereco_id": 10,
-      "estado_id": 14,
-      "id": 10
+      "estado_id": 14
     },
     {
       "nome": "teste5",
@@ -22,44 +22,37 @@
       "id": 11
     },
     {
-      "nome": "Lua",
-      "profissao": "linguagem",
-      "endereco_id": 12,
-      "estado_id": 11,
-      "id": 12
-    },
-    {
-      "nome": "Teste6",
-      "profissao": "TI",
-      "endereco_id": 15,
-      "estado_id": 15,
-      "id": 15
-    },
-    {
-      "nome": "teste7",
-      "profissao": "TI",
-      "endereco_id": 16,
-      "estado_id": 16,
-      "id": 16
-    },
-    {
       "nome": "teste5 novo",
       "profissao": "mesmo",
       "endereco_id": 17,
       "estado_id": 9,
       "id": 17
+    },
+    {
+      "id": 19,
+      "nome": "Antônio",
+      "profissao": "Aux. serv. gerais",
+      "endereco_id": 19,
+      "estado_id": 15
+    },
+    {
+      "id": 20,
+      "nome": "Erica Lima",
+      "profissao": "RH",
+      "endereco_id": 20,
+      "estado_id": 16
     }
   ],
   "endereco": [
     {
+      "id": 9,
       "rua": "gonçalves",
-      "numero": "77",
-      "id": 9
+      "numero": "771"
     },
     {
+      "id": 10,
       "rua": "senai",
-      "numero": "56",
-      "id": 10
+      "numero": "56"
     },
     {
       "rua": "jjjj",
@@ -67,24 +60,19 @@
       "id": 11
     },
     {
-      "rua": "rapper",
-      "numero": "456",
-      "id": 12
-    },
-    {
-      "rua": "avenida",
-      "numero": "569",
-      "id": 15
-    },
-    {
-      "rua": "rua lima",
-      "numero": "896",
-      "id": 16
-    },
-    {
       "rua": "ola",
       "numero": "555",
       "id": 17
+    },
+    {
+      "id": 19,
+      "rua": "15",
+      "numero": "56"
+    },
+    {
+      "id": 20,
+      "rua": "adsad",
+      "numero": "34"
     }
   ],
   "estados": [
