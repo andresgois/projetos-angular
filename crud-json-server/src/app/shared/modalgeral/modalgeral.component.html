@@ -29,10 +29,9 @@
       </div>
       <div class="group">
         <label>Sigla: </label>
-        <select name="plataforma" [(ngModel)]="user.estado">
-          <option value="" selected>Selecione o estado</option>
-          <option *ngFor="let estado of estados"
-            [value]="estado.id">
+        <select name="plataforma" [(ngModel)]="user.estado_id">
+          <option value="null" selected>Selecione o estado</option>
+          <option *ngFor="let estado of estados" [value]="estado.id">
               {{estado.estado}}
         </option>
       </select>
@@ -40,7 +39,7 @@
     </div>
 
     <div class="footer-card">
-      <button>Cadastrar</button>
+      <button>{{edit ? 'Editar' : 'Cadastrar'}}</button>
       <button (click)="modalStatus($event)">Fechar</button>
     </div>
   </form>
