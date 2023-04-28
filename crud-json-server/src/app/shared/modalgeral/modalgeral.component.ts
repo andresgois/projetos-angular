@@ -11,6 +11,7 @@ import { Usuario } from 'src/app/models/usuario.model';
   templateUrl: './modalgeral.component.html',
   styleUrls: ['./modalgeral.component.scss']
 })
+
 export class ModalgeralComponent implements OnInit {
 
   @Output() public aoClicarModal = new EventEmitter();
@@ -27,22 +28,31 @@ export class ModalgeralComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log("ngOnInit")
     if(this.edit){
-      console.log("edit", this.edit)
+      //console.log("edit", this.edit)
+      this.user.id = this.edit.id!;
       this.user.nome = this.edit!.nome;
       this.user.profissao = this.edit!.profissao;
       this.serviceEnder.buscaEnderecosPorId(this.edit.endereco_id!.toString()).subscribe(
         end => {
-          console.log(end)
+          //console.log(end)
+          this.user.endereco_id = end.id!
           this.user.rua = end.rua
           this.user.numero = end.numero
         }
       )
-      this.serviceEstado.buscaEstadoPorID(this.edit.estado_id!.toString()).subscribe(
+      this.serviceEstado.buscaEstadoPorID(this.edit.estado_id).subscribe(
         est => {
-          console.log(est)
-          this.user.sigla
+          //console.log(est)
+          this.user.estado_id = est.id
+          this.user.sigla = est.sigla
+          this.user.estado = est.estado
+        },
+        err => {
+          console.log("Error: ", err);
+          this.user.estado_id = 0;
+          this.user.sigla = '';
+          this.user.estado = '';
         }
       )
     }
@@ -55,27 +65,44 @@ export class ModalgeralComponent implements OnInit {
   }
 
   public modalStatus(e: object) {
-    console.log("modalStatus")
     this.aoClicarModal.emit(this.openModalInput);
   }
 
   onSubmit(){
-    console.log("onSubmit: ",this.edit);
+    if (!!this.edit){
+      this.editar(this.user);
+    } else {
+      this.cadastrar();
+    }
+  }
+
+  cadastrar(){
     const endereco = { rua: this.user.rua, numero: this.user.numero};
 
     this.serviceEnder.enderecoPost(endereco).subscribe(
       e => {
-        console.log("Endereco criado com sucesso: ", e)
-
-        const usuario = { nome: this.user.nome, profissao: this.user.profissao, endereco_id: e.id, estado_id: parseInt(this.user.estado)};
+        const usuario = { nome: this.user.nome, profissao: this.user.profissao, endereco_id: e.id, estado_id: this.user.estado_id};
         this.serviceUser.usuarioPost(usuario).subscribe(
           u => {
             console.log("Usuario criado com sucesso: ", u)
             this.aoClicarModal.emit(this.openModalInput);
-            this.listReady.next('ready');
           }
         )
       }
-      );
+    );
+  }
+
+  editar(user: User){
+    const endereco = { id: user.endereco_id ,rua: user.rua, numero: user.numero};
+    this.serviceEnder.editarEndereco(endereco).subscribe(
+      e => {
+        const usuario = { id: user.id, nome: user.nome, profissao: user.profissao, endereco_id: user.endereco_id, estado_id: user.estado_id};
+        this.serviceUser.edit(usuario).subscribe(
+          u => {
+            this.aoClicarModal.emit(this.openModalInput);
+          }
+        )
+      }
+    );
   }
 }
