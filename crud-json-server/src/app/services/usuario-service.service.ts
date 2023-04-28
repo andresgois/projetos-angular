@@ -22,6 +22,13 @@ export class UsuarioServiceService {
     return this.httpClient.post<Usuario>(this.url, body, {'headers': headers});
   }
 
+  edit(u: Usuario): Observable<Usuario> {
+    let id = u.id;
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(u);
+    return this.httpClient.put<Usuario>(`${this.url}/${id}`, body, {'headers': headers});
+  }
+
   deletar(id: number | undefined) {
     const headers = { 'content-type': 'application/json'}
     return this.httpClient.delete(`${this.url}/${id}`, {'headers': headers});
