@@ -27,6 +27,12 @@ export class EnderecoServiceService {
     const body=JSON.stringify(e);
     return this.httpClient.post<Endereco>(this.url, body, {'headers': headers})
   }
+  editarEndereco(e: Endereco): Observable<Endereco>{
+    let id = e.id;
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(e);
+    return this.httpClient.put<Endereco>(`${this.url}/${id}`, body, {'headers': headers})
+  }
 
   deletar(endereco_id: number | undefined) {
     const headers = { 'content-type': 'application/json'}
