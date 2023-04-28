@@ -12,7 +12,7 @@ export class EstadoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  buscaEstadoPorID(id: String): Observable<Estado>{
+  buscaEstadoPorID(id: number): Observable<Estado>{
     let rota = `${this.url}/${id}`;
     return this.httpClient.get<Estado>(rota);
   }
