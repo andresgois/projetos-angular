@@ -1,34 +1,38 @@
 <main>
   <h5> Dados Pessoais</h5>
-  <div class="group">
-    <label>ID </label>
-    <input type="text" name="usuario" id="usuario" value="{{ (usuarioFull?.usuario)!.id }}" />
-  </div>
-  <div class="group">
-    <label>Usuário: </label>
-    <input type="text" name="usuario" id="usuario" value="{{ (usuarioFull?.usuario)!.nome }}" />
-  </div>
-  <div class="group">
-    <label>Profissão: </label>
-    <input type="text" name="usuario" id="usuario" value="{{ (usuarioFull?.usuario)!.profissao }}" />
+  <div class="bloco-dados">
+    <div class="group">
+      <label>ID </label>
+      <input type="text" name="usuario" id="usuario" disabled value="{{ (usuarioFull?.usuario)!.id }}" />
+    </div>
+    <div class="group">
+      <label>Usuário: </label>
+      <input type="text" name="usuario" id="usuario" value="{{ (usuarioFull?.usuario)!.nome }}" />
+    </div>
+    <div class="group">
+      <label>Profissão: </label>
+      <input type="text" name="usuario" id="usuario" value="{{ (usuarioFull?.usuario)!.profissao }}" />
+    </div>
   </div>
  <h5> Dados de Endereço</h5>
+ <div class="bloco-dados">
 
-  <div class="group">
-    <label>Rua: </label>
-    <input type="text" name="rua" id="rua" value="{{ usuarioFull?.endereco?.rua }}" />
-  </div>
-  <div class="group">
-    <label>Número: </label>
-    <input type="text" name="rua" id="rua" value="{{ usuarioFull?.endereco?.numero }}" />
-  </div>
-  <div class="group">
-    <label>Estado: </label>
-    <input type="text" name="rua" id="rua" value="{{ usuarioFull?.estados?.estado }}" />
-  </div>
-  <div class="group">
-    <label>Sigla: </label>
-    <input type="text" name="rua" id="rua" value="{{ usuarioFull?.estados?.sigla }}" />
+    <div class="group">
+      <label>Rua: </label>
+      <input type="text" name="rua" id="rua" value="{{ usuarioFull?.endereco?.rua }}" />
+    </div>
+    <div class="group">
+      <label>Número: </label>
+      <input type="text" name="rua" id="rua" value="{{ usuarioFull?.endereco?.numero }}" />
+    </div>
+    <div class="group">
+      <label>Estado: </label>
+      <input type="text" name="rua" id="rua" value="{{ usuarioFull?.estados?.estado }}" />
+    </div>
+    <div class="group">
+      <label>Sigla: </label>
+      <input type="text" name="rua" id="rua" value="{{ usuarioFull?.estados?.sigla }}" />
+    </div>
   </div>
   <button (click)="alertEvent($event)">Fechar</button>
 </main>
