@@ -1,9 +1,9 @@
 import { Estado } from './../models/estado.model';
 import { Endereco } from './../models/endereco.model';
 import { EnderecoServiceService } from '../services/endereco-service.service';
-import { UsuarioFull } from './../models/usuario-full';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EstadoService } from '../services/estado/estado.service';
+import { UsuarioFull } from '../models/usuario-full';
 
 @Component({
   selector: 'app-modal',

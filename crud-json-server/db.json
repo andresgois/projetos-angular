@@ -1,13 +1,6 @@
 {
   "usuario": [
     {
-      "id": 9,
-      "nome": "ANdre update",
-      "profissao": "Analista",
-      "endereco_id": 9,
-      "estado_id": 13
-    },
-    {
       "id": 10,
       "nome": "Priscila Erica",
       "profissao": "Eventos",
@@ -15,18 +8,11 @@
       "estado_id": 14
     },
     {
-      "nome": "teste5",
-      "profissao": "fgfg",
-      "endereco_id": 11,
-      "estado_id": 12,
-      "id": 11
-    },
-    {
-      "nome": "teste5 novo",
-      "profissao": "mesmo",
+      "id": 17,
+      "nome": "André",
+      "profissao": "Analista",
       "endereco_id": 17,
-      "estado_id": 9,
-      "id": 17
+      "estado_id": "6"
     },
     {
       "id": 19,
@@ -36,33 +22,23 @@
       "estado_id": 15
     },
     {
-      "id": 20,
-      "nome": "Erica Lima",
+      "nome": "Erica Maia",
       "profissao": "RH",
       "endereco_id": 20,
-      "estado_id": 16
+      "estado_id": "25",
+      "id": 20
     }
   ],
   "endereco": [
-    {
-      "id": 9,
-      "rua": "gonçalves",
-      "numero": "771"
-    },
     {
       "id": 10,
       "rua": "senai",
       "numero": "56"
     },
     {
-      "rua": "jjjj",
-      "numero": "86",
-      "id": 11
-    },
-    {
-      "rua": "ola",
-      "numero": "555",
-      "id": 17
+      "id": 17,
+      "rua": "Pedro Maia",
+      "numero": "1059"
     },
     {
       "id": 19,
@@ -70,9 +46,9 @@
       "numero": "56"
     },
     {
-      "id": 20,
-      "rua": "adsad",
-      "numero": "34"
+      "rua": "Almirante",
+      "numero": "56",
+      "id": 20
     }
   ],
   "estados": [

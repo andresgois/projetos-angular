@@ -29,13 +29,11 @@ export class ModalgeralComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.edit){
-      //console.log("edit", this.edit)
       this.user.id = this.edit.id!;
       this.user.nome = this.edit!.nome;
       this.user.profissao = this.edit!.profissao;
       this.serviceEnder.buscaEnderecosPorId(this.edit.endereco_id!.toString()).subscribe(
         end => {
-          //console.log(end)
           this.user.endereco_id = end.id!
           this.user.rua = end.rua
           this.user.numero = end.numero
@@ -43,7 +41,6 @@ export class ModalgeralComponent implements OnInit {
       )
       this.serviceEstado.buscaEstadoPorID(this.edit.estado_id).subscribe(
         est => {
-          //console.log(est)
           this.user.estado_id = est.id
           this.user.sigla = est.sigla
           this.user.estado = est.estado
