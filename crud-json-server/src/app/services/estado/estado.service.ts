@@ -2,13 +2,14 @@ import { Observable } from 'rxjs';
 import { Estado } from './../../models/estado.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstadoService {
 
-  private url = "http://localhost:3000/estados";
+  private url: string = environment.urlEstado;
 
   constructor(private httpClient: HttpClient) { }
 
