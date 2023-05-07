@@ -1,0 +1,29 @@
+{
+  "user": [
+    {
+      "user_id": 1,
+      "user_name": "andre",
+      "user_email": "andre@email.com",
+      "user_password": "123456",
+      "user_full_name": "Andre Gois",
+      "user_join_date": "2020-10-23 00:07:07"
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "userName": "andre",
+      "password": "123456"
+    },
+    {
+      "userName": "andre",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "userName": "f",
+      "password": "f",
+      "id": 3
+    }
+  ]
+}
