@@ -14,8 +14,8 @@
 - *Adicionar os caminhos do bootstrap no **angular.json** para que o angular reconheça as libs*
 ```
 "scripts": [
-    "./node_modules/bootstrap/dist/CSS/bootstrap.min.CSS",
-    "./node_modules/font-awesome/CSS/font-awesome.CSS"
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "./node_modules/font-awesome/css/font-awesome.css"
 ]
 ```
 
