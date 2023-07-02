@@ -16,7 +16,9 @@ import { HomeComponent } from './components/views/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
-
+import { FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { CategoriaReadComponent } from './components/views/categorias/categoria-read/categoria-read.component';
 import { CategoriaCreateComponent } from './components/views/categorias/categoria-create/categoria-create.component';
 
@@ -41,7 +43,10 @@ import { CategoriaCreateComponent } from './components/views/categorias/categori
     MatCardModule,
     MatTableModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
