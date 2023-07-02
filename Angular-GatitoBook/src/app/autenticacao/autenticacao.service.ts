@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AutenticacaoService {
-  //url = 'http://localhost:3000/user/login';
-  url = 'http://localhost:3000/login';
+  url = 'http://localhost:3000/user/login';
+  //url = 'http://localhost:3000/login';
 
   constructor(private httpClient: HttpClient) {}
 
