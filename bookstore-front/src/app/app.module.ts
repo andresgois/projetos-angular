@@ -23,6 +23,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CategoriaReadComponent } from './components/views/categorias/categoria-read/categoria-read.component';
 import { CategoriaCreateComponent } from './components/views/categorias/categoria-create/categoria-create.component';
 import { CategoriaDeleteComponent } from './components/views/categorias/categoria-delete/categoria-delete.component';
+import { CategoriaUpdateComponent } from './components/views/categorias/categoria-update/categoria-update.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CategoriaDeleteComponent } from './components/views/categorias/categori
     HomeComponent,
     CategoriaReadComponent,
     CategoriaCreateComponent,
-    CategoriaDeleteComponent
+    CategoriaDeleteComponent,
+    CategoriaUpdateComponent
   ],
   imports: [
     BrowserModule,
