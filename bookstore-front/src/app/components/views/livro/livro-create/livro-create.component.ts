@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LivroService } from '../livro.service';
+import { Livro } from '../Livro.model';
 
 @Component({
   selector: 'app-livro-create',
@@ -9,20 +11,45 @@ import { Router } from '@angular/router';
 })
 export class LivroCreateComponent implements OnInit {
 
+    id_cat: string = '';
+
+    livro: Livro = {
+        id: '',
+        titulo: '',
+        nome_autor: '',
+        texto: ''
+    }
+
     titulo = new FormControl("", [Validators.minLength(3)]);
     nome_autor = new FormControl("", [Validators.minLength(3)]);
     texto = new FormControl("", [Validators.minLength(10)]);
 
-  constructor( private router: Router) { }
+  constructor( 
+    private router: Router,
+    private service: LivroService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+      this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
+  }
+
+    createLivro(): void {
+        this.service.create(this.livro, this.id_cat).subscribe( r=> {
+            this.router.navigate([`categorias/${this.id_cat}/livros`]);
+            this.service.mensagem("Livro cadastrado com sucesso!");
+        }, e => {
+            this.router.navigate([`categorias/${this.id_cat}/livros`]);
+            this.service.mensagem("Erro ao criar livro");
+    })
+
   }
 
   getMessage() {
     if(this.titulo.invalid ){
         return "O campo TITULO deve conter entre 3 e 100 caracteres";
     }
-    if(this.nome_autor.invalid || this.nome_autor.invalid || this.texto.invalid){
+    if(this.nome_autor.invalid ){
         return "O campo AUTOR deve conter entre 3 e 100 caracteres";
     }
     if( this.texto.invalid){
@@ -32,7 +59,7 @@ export class LivroCreateComponent implements OnInit {
   }
 
   cancel(): void {
-    //this.router.navigate([`categorias/${id}//livros`]);
+    this.router.navigate([`categorias/${this.id_cat}/livros`]);
   }
 
 }

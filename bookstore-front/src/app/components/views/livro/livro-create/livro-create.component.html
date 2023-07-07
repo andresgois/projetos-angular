@@ -4,23 +4,23 @@
     <mat-form-field class="form">
         <mat-label>Titulo</mat-label>
         <input matInput [formControl]="titulo" required type="text" [(ngModel)]="livro.titulo" name="titulo" placeholder="Ex: Clean code" maxlength="100">
-        <mat-errr *ngIf="titulo.invalid">{{ getMessage() }}</mat-errr>
+        <mat-error *ngIf="titulo.invalid">{{ getMessage() }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label>Descrição</mat-label>
         <input matInput [formControl]="nome_autor" required type="text" [(ngModel)]="livro.nome_autor" name="nome_autor" placeholder="Ex: Livros de Computação" maxlength="100">
-        <mat-errr *ngIf="nome_autor.invalid">{{ getMessage() }}</mat-errr>
+        <mat-error *ngIf="nome_autor.invalid">{{ getMessage() }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label>Texto</mat-label>
-        <textarea matInput type="text" [(ngModel)]="livro.texto" name="texto" placeholder="Ex: Livros de Computação" maxlength="100000"></textarea>
-        <mat-errr *ngIf="texto.invalid">{{ getMessage() }}</mat-errr>
+        <textarea matInput [formControl]="texto" required type="text" [(ngModel)]="livro.texto" name="texto" placeholder="Ex: Livros de Computação" maxlength="100000"></textarea>
+        <mat-error *ngIf="texto.invalid">{{ getMessage() }}</mat-error>
     </mat-form-field>
 
     <div class="buttons">
-        <button [disable]="getMessage()" class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">CRIAR</button>
+        <button [disabled]="getMessage()"  (click)="createLivro()" class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">CRIAR</button>
         <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
 
     </div>
