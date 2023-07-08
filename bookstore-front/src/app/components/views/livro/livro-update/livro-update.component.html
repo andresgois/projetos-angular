@@ -1,1 +1,27 @@
-<p>livro-update works!</p>
+<form action="">
+    <h1>ATUALIZANDO LIVRO</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Titulo</mat-label>
+        <input matInput [formControl]="titulo" required type="text" [(ngModel)]="livro.titulo" name="titulo" placeholder="Ex: Clean code" maxlength="100">
+        <mat-error *ngIf="titulo.invalid">{{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Descrição</mat-label>
+        <input matInput [formControl]="nome_aut" required type="text" [(ngModel)]="livro.nome_aut" name="nome_aut" placeholder="Ex: Livros de Computação" maxlength="100">
+        <mat-error *ngIf="nome_aut.invalid">{{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Texto</mat-label>
+        <textarea matInput [formControl]="texto" required type="text" [(ngModel)]="livro.texto" name="texto" placeholder="Ex: Livros de Computação" maxlength="100000"></textarea>
+        <mat-error *ngIf="texto.invalid">{{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button [disabled]="getMessage()"  (click)="updateLivro()" class="mat-elevation-z8" mat-raised-button color="primary">ATUALIZAR</button>
+        <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
+
+    </div>
+</form>
