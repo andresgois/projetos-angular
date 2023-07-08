@@ -41,15 +41,15 @@ export class LivroUpdateComponent implements OnInit {
             this.livro = r;
         })
     }
-    
+
     updateLivro(): void {
-       /* this.service.create(this.livro, this.id_cat).subscribe(r => {
+       this.service.update(this.livro).subscribe(r => {
             this.router.navigate([`categorias/${this.id_cat}/livros`]);
-            this.service.mensagem("Livro cadastrado com sucesso!");
+            this.service.mensagem("Livro atualizado com sucesso!");
         }, e => {
             this.router.navigate([`categorias/${this.id_cat}/livros`]);
-            this.service.mensagem("Erro ao criar livro");
-        })*/
+            this.service.mensagem("Erro ao atualizar livro");
+        });
 
     }
 
