@@ -16,12 +16,12 @@ export class LivroCreateComponent implements OnInit {
     livro: Livro = {
         id: '',
         titulo: '',
-        nome_autor: '',
+        nome_aut: '',
         texto: ''
     }
 
     titulo = new FormControl("", [Validators.minLength(3)]);
-    nome_autor = new FormControl("", [Validators.minLength(3)]);
+    nome_aut = new FormControl("", [Validators.minLength(3)]);
     texto = new FormControl("", [Validators.minLength(10)]);
 
   constructor( 
@@ -49,7 +49,7 @@ export class LivroCreateComponent implements OnInit {
     if(this.titulo.invalid ){
         return "O campo TITULO deve conter entre 3 e 100 caracteres";
     }
-    if(this.nome_autor.invalid ){
+    if(this.nome_aut.invalid ){
         return "O campo AUTOR deve conter entre 3 e 100 caracteres";
     }
     if( this.texto.invalid){
